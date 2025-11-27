@@ -1,0 +1,118 @@
+<!-- FILE: /contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact – Noosa House, Noosa Heads</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Contact Noosa House in Noosa Heads – send an enquiry or go straight to the Airbnb listing to check availability and book."
+  />
+  <link rel="canonical" href="https://noosahouse.com/contact.html" />
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo-block">
+      <div class="logo-title">Noosa House</div>
+      <div class="logo-subtitle">Family Villa & Lagoon Pool</div>
+    </div>
+    <nav class="top-nav">
+      <a href="/index.html">Home</a>
+      <a href="/gallery.html">Gallery</a>
+      <a href="/location.html">Location</a>
+      <a href="/contact.html" class="active">Contact</a>
+      <a href="/ai-discovery.html">AI Details</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="section content-narrow">
+      <h1>Contact & Booking</h1>
+
+      <p>
+        Noosa House is managed by professional holiday-rental agents.
+        For your security and convenience, all bookings and payments are completed
+        through our Airbnb listing.
+      </p>
+
+      <h2>Book on Airbnb</h2>
+      <p>
+        For instant availability, prices, reviews and secure payment, please use Airbnb:
+      </p>
+      <p>
+        <a
+          class="btn primary"
+          href="https://www.airbnb.com.au/rooms/49181761"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View &amp; Book on Airbnb
+        </a>
+      </p>
+
+      <div class="contact-wrapper">
+        <h2>Send a message to the host</h2>
+        <p class="small">
+          Use this short form if you would like to introduce your group or ask a question.
+          When you click <strong>Send enquiry</strong>, your message will be emailed to the host.
+          To confirm a booking, you still need to complete the reservation on Airbnb.
+        </p>
+
+        <form
+          action="https://formsubmit.co/leffleryd@gmail.com"
+          method="POST"
+        >
+          <label>Your name</label>
+          <input type="text" name="Name" required />
+
+          <label>Email</label>
+          <input type="email" name="Email" required />
+
+          <div class="row">
+            <div>
+              <label>Check-in date</label>
+              <input type="date" name="Check-in date" />
+            </div>
+            <div>
+              <label>Check-out date</label>
+              <input type="date" name="Check-out date" />
+            </div>
+          </div>
+
+          <label>Number of guests</label>
+          <input type="number" name="Guests" min="1" max="8" value="4" />
+
+          <label>Message to host (optional)</label>
+          <textarea
+            name="Message"
+            rows="4"
+            placeholder="Example: We are a family visiting Noosa – is late check-in possible?"
+          ></textarea>
+
+          <input type="hidden" name="_subject" value="Noosa House – New Enquiry" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <!-- After form submit, redirect the guest to Airbnb listing -->
+          <input
+            type="hidden"
+            name="_next"
+            value="https://www.airbnb.com.au/rooms/49181761"
+          />
+
+          <button type="submit">Send enquiry</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Noosa House – Noosa Heads, Australia</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
