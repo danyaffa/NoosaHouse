@@ -1,0 +1,140 @@
+<!-- FILE: /gallery.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gallery – Noosa House, Noosa Heads</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Photo gallery of Noosa House in Noosa Heads – lagoon pool, tropical gardens, living areas, kitchen and bedrooms."
+  />
+  <link rel="canonical" href="https://noosahouse.com/gallery.html" />
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo-block">
+      <div class="logo-title">Noosa House</div>
+      <div class="logo-subtitle">Family Villa & Lagoon Pool</div>
+    </div>
+    <nav class="top-nav">
+      <a href="/index.html">Home</a>
+      <a href="/gallery.html" class="active">Gallery</a>
+      <a href="/location.html">Location</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/ai-discovery.html">AI Details</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="section">
+      <h1>Photo Gallery</h1>
+      <p>
+        Explore the lagoon pool, tropical gardens and relaxed interiors of Noosa House.
+        Click any image to view it full screen.
+      </p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img
+            src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/16aaa305-3b06-41bc-bf20-1460e399b5b9.jpeg?im_w=720"
+            alt="Noosa House – lagoon pool with house in the background"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/0ca004ef-c78b-4eb1-b227-50aab38509d2.jpeg?im_w=720"
+            alt="Lagoon pool and sun loungers surrounded by palms"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/f7a32f12-0b93-48a3-89c4-b3f29eb5555b.jpeg?im_w=720"
+            alt="Bright living room with sofa and TV at Noosa House"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/0137e0fa-e6f1-4546-b86d-4527a57716f4.jpeg?im_w=720"
+            alt="Modern white kitchen and dining area"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/7fd9ffa5-099f-479f-b967-4b9a80540616.jpeg?im_w=720"
+            alt="Comfortable lounge with sofas and fireplace"
+          />
+        </div>
+
+        <!-- You can add more Airbnb image URLs here in the same format if you like -->
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox-overlay" id="lightbox-overlay" aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close">×</button>
+    <button class="lightbox-nav prev" id="lightbox-prev" type="button" aria-label="Previous image">❮</button>
+    <img id="lightbox-image" src="" alt="Full-size view of Noosa House" />
+    <button class="lightbox-nav next" id="lightbox-next" type="button" aria-label="Next image">❯</button>
+  </div>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Noosa House – Noosa Heads, Australia</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Lightbox Logic
+    (function () {
+      const overlay = document.getElementById("lightbox-overlay");
+      const lightboxImg = document.getElementById("lightbox-image");
+      const images = Array.from(document.querySelectorAll(".gallery-item img"));
+      const closeBtn = document.getElementById("lightbox-close");
+      const prevBtn = document.getElementById("lightbox-prev");
+      const nextBtn = document.getElementById("lightbox-next");
+
+      if (!images.length) return;
+
+      let currentIndex = 0;
+
+      function openLightbox(index) {
+        currentIndex = index;
+        lightboxImg.src = images[index].src;
+        overlay.classList.add("open");
+        overlay.setAttribute("aria-hidden", "false");
+      }
+
+      function closeLightbox() {
+        overlay.classList.remove("open");
+        overlay.setAttribute("aria-hidden", "true");
+      }
+
+      function showNext(delta) {
+        currentIndex = (currentIndex + delta + images.length) % images.length;
+        lightboxImg.src = images[currentIndex].src;
+      }
+
+      images.forEach((img, index) => {
+        img.addEventListener("click", () => openLightbox(index));
+      });
+
+      closeBtn.addEventListener("click", closeLightbox);
+      overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) closeLightbox();
+      });
+
+      prevBtn.addEventListener("click", () => showNext(-1));
+      nextBtn.addEventListener("click", () => showNext(1));
+
+      document.addEventListener("keydown", (e) => {
+        if (!overlay.classList.contains("open")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowRight") showNext(1);
+        if (e.key === "ArrowLeft") showNext(-1);
+      });
+    })();
+  </script>
+</body>
+</html>
