@@ -1,0 +1,5 @@
+# FILE: /robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://noosahouse.com/sitemap.xml
