@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  
   <title>Noosa House – Family Villa with Resort-Style Pool, Noosa Heads</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -21,7 +21,7 @@
   />
   <meta name="robots" content="index,follow" />
 
-  <!-- ✅ FIX: set ONE preferred canonical (match your final redirect target) -->
+  <!-- ✅ FIXED CANONICAL -->
   <link rel="canonical" href="https://www.staynoosahouse.com/" />
 
   <link rel="stylesheet" href="/public/styles.css" />
@@ -76,13 +76,13 @@
 
       <div class="hero-image">
         <div class="hero-slider" id="hero-slider">
-          <div class="hero-slide active">
+          <div class="hero-slide">
             <img
               src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/16aaa305-3b06-41bc-bf20-1460e399b5b9.jpeg?im_w=1200"
               alt="Noosa House lagoon pool"
             />
           </div>
-          <div class="hero-slide">
+          <div class="hero-slide active">
             <img
               src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/0ca004ef-c78b-4eb1-b227-50aab38509d2.jpeg?im_w=1200"
               alt="Lagoon pool with trees"
@@ -105,8 +105,8 @@
           <button class="hero-slider-btn next" aria-label="Next">❯</button>
 
           <div class="hero-dots" id="hero-dots">
-            <button class="hero-dot active"></button>
             <button class="hero-dot"></button>
+            <button class="hero-dot active"></button>
             <button class="hero-dot"></button>
             <button class="hero-dot"></button>
           </div>
@@ -168,7 +168,7 @@
   </main>
 
   <footer class="site-footer">
-    <p>© <span id="year"></span> Noosa House – Noosa Heads, Australia</p>
+    <p>© <span id="year">2025</span> Noosa House – Noosa Heads, Australia</p>
   </footer>
 
   <script>
@@ -213,11 +213,11 @@
     })();
   </script>
 
-  <!-- Structured Data -->
+  <!-- ✅ FIXED Structured Data (removes Holiday rental invalid item) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "VacationRental",
+    "@type": "LodgingBusiness",
     "name": "Noosa House – Family Villa with Resort-Style Pool",
     "description": "Character-filled 4-bedroom family villa in Noosa Heads with heated lagoon pool and tropical gardens.",
     "address": {
@@ -235,5 +235,6 @@
     "sameAs": ["https://www.airbnb.com.au/rooms/49181761"]
   }
   </script>
+
 </body>
 </html>
