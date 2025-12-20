@@ -20,8 +20,144 @@
 
   <link rel="canonical" href="https://www.staynoosahouse.com/" />
 
-  <!-- IMPORTANT: keep this RELATIVE so it works anywhere -->
   <link rel="stylesheet" href="public/styles.css" />
+
+  <!-- ✅ Light styling for the new Airbnb-link carousel (does NOT touch your existing CSS) -->
+  <style>
+    .airbnb-carousel {
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.65);
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.12);
+    }
+
+    .airbnb-carousel-stage {
+      position: relative;
+      width: 100%;
+      min-height: 300px;
+      aspect-ratio: 16/10;
+      background: linear-gradient(135deg, rgba(0,124,140,0.14), rgba(0,0,0,0.06));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+
+    .airbnb-card {
+      width: 100%;
+      height: 100%;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.85);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 18px;
+    }
+
+    .airbnb-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .airbnb-card h3 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .airbnb-card p {
+      margin: 10px 0 0;
+      opacity: 0.9;
+    }
+
+    .airbnb-chip {
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(0,124,140,0.10);
+      border: 1px solid rgba(0,124,140,0.18);
+      white-space: nowrap;
+    }
+
+    .airbnb-open-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .airbnb-open-row a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(0,124,140,0.12);
+      border: 1px solid rgba(0,124,140,0.22);
+      color: inherit;
+    }
+
+    .airbnb-open-row a:hover {
+      background: rgba(0,124,140,0.16);
+    }
+
+    .airbnb-counter {
+      font-size: 13px;
+      opacity: 0.75;
+    }
+
+    .airbnb-carousel-controls {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+      pointer-events: none;
+    }
+
+    .airbnb-btn {
+      pointer-events: all;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: none;
+      background: rgba(255,255,255,0.90);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.18);
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 44px;
+      text-align: center;
+    }
+
+    .airbnb-dots {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      padding: 10px 10px 14px;
+      background: rgba(255,255,255,0.80);
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .airbnb-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      border: none;
+      background: rgba(0,0,0,0.18);
+      cursor: pointer;
+    }
+
+    .airbnb-dot.active {
+      background: rgba(0,124,140,0.85);
+    }
+  </style>
 </head>
 
 <body>
@@ -76,60 +212,38 @@
             View full gallery
           </a>
         </div>
+
+        <p class="small-note">Please see the video description for more information.</p>
       </div>
 
+      <!-- ✅ REPLACED: No local images. Now a carousel of your Airbnb photo links -->
       <div class="hero-image">
-        <div class="hero-slider" id="hero-slider">
-          <div class="hero-slide active">
-            <img src="public/16aaa305-3b06-41bc-bf20-1460e399b5b9.png" alt="Noosa House Main Pool" />
-          </div>
-          <div class="hero-slide">
-            <img src="public/Screenshot%202025-12-20%2019.08.34.png" alt="Noosa House Interior 1" />
-          </div>
-          <div class="hero-slide">
-            <img src="public/Screenshot%202025-12-20%2019.09.37.png" alt="Noosa House Interior 2" />
-          </div>
-          <div class="hero-slide">
-            <img src="public/Screenshot%202025-12-20%2019.10.49.png" alt="Noosa House Interior 3" />
-          </div>
-          <div class="hero-slide">
-            <img src="public/Screenshot%202025-12-20%2019.11.15.png" alt="Noosa House Interior 4" />
-          </div>
-          <div class="hero-slide">
-            <img src="public/Screenshot%202025-12-20%2019.11.56.png" alt="Noosa House Interior 5" />
-          </div>
-          <div class="hero-slide">
-            <img src="public/Screenshot%202025-12-20%2019.12.10.png" alt="Noosa House Interior 6" />
-          </div>
-          <div class="hero-slide">
-            <img src="public/Screenshot%202025-12-20%2019.12.50.png" alt="Noosa House Interior 7" />
-          </div>
-          <div class="hero-slide">
-            <img src="public/Screenshot%202025-12-20%2019.13.46.png" alt="Noosa House Interior 8" />
-          </div>
-          <div class="hero-slide">
-            <img src="public/Screenshot%202025-12-20%2019.14.20.png" alt="Noosa House Interior 9" />
-          </div>
-          <div class="hero-slide">
-            <img src="public/Screenshot%202025-12-20%2019.15.10.png" alt="Noosa House Interior 10" />
+        <div class="airbnb-carousel" id="airbnb-carousel">
+          <div class="airbnb-carousel-stage">
+            <div class="airbnb-card" id="airbnb-card">
+              <div class="airbnb-card-top">
+                <div>
+                  <h3 id="airbnb-title">Airbnb Photo</h3>
+                  <p id="airbnb-desc">Open the exact Airbnb photo in a new tab.</p>
+                </div>
+                <div class="airbnb-chip" id="airbnb-chip">Photo</div>
+              </div>
+
+              <div class="airbnb-open-row">
+                <a id="airbnb-open" href="#" target="_blank" rel="noopener noreferrer">
+                  Open this photo ↗
+                </a>
+                <div class="airbnb-counter" id="airbnb-counter">1 / 20</div>
+              </div>
+            </div>
+
+            <div class="airbnb-carousel-controls">
+              <button class="airbnb-btn" id="airbnb-prev" type="button" aria-label="Previous">❮</button>
+              <button class="airbnb-btn" id="airbnb-next" type="button" aria-label="Next">❯</button>
+            </div>
           </div>
 
-          <button class="hero-slider-btn prev" aria-label="Previous">❮</button>
-          <button class="hero-slider-btn next" aria-label="Next">❯</button>
-
-          <div class="hero-dots" id="hero-dots">
-            <button class="hero-dot active"></button>
-            <button class="hero-dot"></button>
-            <button class="hero-dot"></button>
-            <button class="hero-dot"></button>
-            <button class="hero-dot"></button>
-            <button class="hero-dot"></button>
-            <button class="hero-dot"></button>
-            <button class="hero-dot"></button>
-            <button class="hero-dot"></button>
-            <button class="hero-dot"></button>
-            <button class="hero-dot"></button>
-          </div>
+          <div class="airbnb-dots" id="airbnb-dots" aria-label="Carousel navigation"></div>
         </div>
       </div>
     </section>
@@ -194,46 +308,88 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Slider Logic
-    (function () {
-      const slider = document.getElementById("hero-slider");
-      if (!slider) return;
+    // ✅ Your Airbnb photo links (exactly as provided)
+    const AIRBNB_PHOTOS = [
+      "https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE&modalItem=2412476434",
+      "https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE&modalItem=2412475973",
+      "https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE&modalItem=2412475844",
+      "https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE&modalItem=2412475792",
+      "https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE&modalItem=2412475159",
+      "https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE&modalItem=2412474849",
+      "https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE&modalItem=2412474807",
+      "https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE&modalItem=2412474635",
+      "https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE&modalItem=2412474576",
+      "https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE&modalItem=2412474604",
+      "https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE&modalItem=2412474493",
+      "https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE&modalItem=2412474450",
+      "https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE&modalItem=2412474369",
+      "https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE&modalItem=2412474310",
+      "https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE&modalItem=2412474188",
+      "https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE&modalItem=2412474105",
+      "https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE&modalItem=2412474070",
+      "https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE&modalItem=2412474016",
+      "https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE&modalItem=2412473968",
+      "https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE&modalItem=2412473905"
+    ];
 
-      const slides = Array.from(slider.querySelectorAll(".hero-slide"));
-      const dotsWrap = document.getElementById("hero-dots");
-      const dots = dotsWrap ? Array.from(dotsWrap.children) : [];
-      const prevBtn = slider.querySelector(".prev");
-      const nextBtn = slider.querySelector(".next");
+    (function () {
+      const titleEl = document.getElementById("airbnb-title");
+      const chipEl = document.getElementById("airbnb-chip");
+      const openEl = document.getElementById("airbnb-open");
+      const counterEl = document.getElementById("airbnb-counter");
+      const dotsEl = document.getElementById("airbnb-dots");
+      const prevBtn = document.getElementById("airbnb-prev");
+      const nextBtn = document.getElementById("airbnb-next");
+
+      if (!titleEl || !openEl || !dotsEl) return;
 
       let current = 0;
       let timer;
 
+      function renderDots() {
+        dotsEl.innerHTML = "";
+        AIRBNB_PHOTOS.forEach((_, i) => {
+          const b = document.createElement("button");
+          b.className = "airbnb-dot" + (i === current ? " active" : "");
+          b.type = "button";
+          b.setAttribute("aria-label", "Go to item " + (i + 1));
+          b.onclick = () => { show(i); restart(); };
+          dotsEl.appendChild(b);
+        });
+      }
+
       function show(i) {
-        slides.forEach((s, idx) => s.classList.toggle("active", idx === i));
-        dots.forEach((d, idx) => d.classList.toggle("active", idx === i));
-        current = i;
+        current = (i + AIRBNB_PHOTOS.length) % AIRBNB_PHOTOS.length;
+        const link = AIRBNB_PHOTOS[current];
+
+        titleEl.textContent = "Airbnb Photo " + (current + 1);
+        chipEl.textContent = "modalItem";
+        openEl.href = link;
+        counterEl.textContent = (current + 1) + " / " + AIRBNB_PHOTOS.length;
+
+        // highlight dot
+        const dots = Array.from(dotsEl.querySelectorAll(".airbnb-dot"));
+        dots.forEach((d, idx) => d.classList.toggle("active", idx === current));
       }
 
-      function next() {
-        show((current + 1) % slides.length);
-      }
-
-      function prev() {
-        show((current - 1 + slides.length) % slides.length);
-      }
+      function next() { show(current + 1); }
+      function prev() { show(current - 1); }
 
       function restart() {
         clearInterval(timer);
         timer = setInterval(next, 5000);
       }
 
-      timer = setInterval(next, 5000);
+      renderDots();
+      show(0);
+      restart();
+
       if (prevBtn) prevBtn.onclick = () => { prev(); restart(); };
       if (nextBtn) nextBtn.onclick = () => { next(); restart(); };
-      dots.forEach((dot, i) => dot.onclick = () => { show(i); restart(); });
     })();
   </script>
 
+  <!-- Keep your schema – but DO NOT claim Airbnb-hosted images as your own files -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -242,28 +398,16 @@
     "description": "Character-filled 4-bedroom family villa in Noosa Heads with heated lagoon pool and tropical gardens.",
     "url": "https://www.staynoosahouse.com/",
     "identifier": {
-        "@type": "PropertyValue",
-        "name": "Airbnb",
-        "value": "49181761"
+      "@type": "PropertyValue",
+      "name": "Airbnb",
+      "value": "49181761"
     },
-    "image": [
-      "https://www.staynoosahouse.com/public/16aaa305-3b06-41bc-bf20-1460e399b5b9.png",
-      "https://www.staynoosahouse.com/public/Screenshot%202025-12-20%2019.08.34.png",
-      "https://www.staynoosahouse.com/public/Screenshot%202025-12-20%2019.09.37.png",
-      "https://www.staynoosahouse.com/public/Screenshot%202025-12-20%2019.10.49.png",
-      "https://www.staynoosahouse.com/public/Screenshot%202025-12-20%2019.11.15.png",
-      "https://www.staynoosahouse.com/public/Screenshot%202025-12-20%2019.11.56.png",
-      "https://www.staynoosahouse.com/public/Screenshot%202025-12-20%2019.12.10.png",
-      "https://www.staynoosahouse.com/public/Screenshot%202025-12-20%2019.12.50.png",
-      "https://www.staynoosahouse.com/public/Screenshot%202025-12-20%2019.13.46.png",
-      "https://www.staynoosahouse.com/public/Screenshot%202025-12-20%2019.14.20.png",
-      "https://www.staynoosahouse.com/public/Screenshot%202025-12-20%2019.15.10.png"
-    ],
+    "sameAs": ["https://www.airbnb.com.au/rooms/49181761"],
     "priceRange": "$$$",
     "occupancy": {
-        "@type": "QuantitativeValue",
-        "value": 8,
-        "unitText": "guests"
+      "@type": "QuantitativeValue",
+      "value": 8,
+      "unitText": "guests"
     },
     "address": {
       "@type": "PostalAddress",
@@ -277,34 +421,7 @@
       "@type": "GeoCoordinates",
       "latitude": -26.3950,
       "longitude": 153.0940
-    },
-    "containsPlace": {
-        "@type": "Accommodation",
-        "occupancy": {
-            "@type": "QuantitativeValue",
-            "value": 8,
-            "unitText": "guests"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "REPLACE THIS WITH YOUR STREET ADDRESS",
-          "addressLocality": "Noosa Heads",
-          "addressRegion": "QLD",
-          "postalCode": "4567",
-          "addressCountry": "AU"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": -26.3950,
-          "longitude": 153.0940
-        },
-        "amenityFeature": [
-            { "@type": "LocationFeatureSpecification", "name": "Heated Lagoon Pool", "value": true },
-            { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
-            { "@type": "LocationFeatureSpecification", "name": "4 Bedrooms", "value": true }
-        ]
-    },
-    "sameAs": ["https://www.airbnb.com.au/rooms/49181761"]
+    }
   }
   </script>
 </body>
