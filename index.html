@@ -1,15 +1,11 @@
-<!-- FILE: /index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
   <title>Noosa House – Family Villa with Resort-Style Pool, Noosa Heads</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- ⭐ Bing Verification -->
   <meta name="msvalidate.01" content="1A5F9E495867B41926D6E2C113347122" />
 
-  <!-- ⭐ Google Verification -->
   <meta
     name="google-site-verification"
     content="bQaqGoByhHPrtc4VLu5vrbcC7FKsuEyU873iGme8M-U"
@@ -21,7 +17,6 @@
   />
   <meta name="robots" content="index,follow" />
 
-  <!-- ✅ CANONICAL (keep this exact) -->
   <link rel="canonical" href="https://www.staynoosahouse.com/" />
 
   <link rel="stylesheet" href="/public/styles.css" />
@@ -180,8 +175,7 @@
       if (!slider) return;
 
       const slides = Array.from(slider.querySelectorAll(".hero-slide"));
-      const dotsEl = document.getElementById("hero-dots");
-      const dots = dotsEl ? Array.from(dotsEl.children) : [];
+      const dots = Array.from(document.getElementById("hero-dots").children);
       const prevBtn = slider.querySelector(".prev");
       const nextBtn = slider.querySelector(".next");
 
@@ -208,34 +202,48 @@
       }
 
       timer = setInterval(next, 5000);
-      if (prevBtn) prevBtn.onclick = () => { prev(); restart(); };
-      if (nextBtn) nextBtn.onclick = () => { next(); restart(); };
+      prevBtn.onclick = () => { prev(); restart(); };
+      nextBtn.onclick = () => { next(); restart(); };
       dots.forEach((dot, i) => dot.onclick = () => { show(i); restart(); });
     })();
   </script>
 
-  <!-- ✅ FIXED Structured Data: use LodgingBusiness (no Holiday rental mandatory fields) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LodgingBusiness",
-    "@id": "https://www.staynoosahouse.com/#lodging",
+    "@type": "VacationRental",
     "name": "Noosa House – Family Villa with Resort-Style Pool",
     "description": "Character-filled 4-bedroom family villa in Noosa Heads with heated lagoon pool and tropical gardens.",
     "url": "https://www.staynoosahouse.com/",
+    "identifier": {
+        "@type": "PropertyValue",
+        "name": "Airbnb",
+        "value": "49181761"
+    },
     "image": [
       "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/16aaa305-3b06-41bc-bf20-1460e399b5b9.jpeg",
       "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/0ca004ef-c78b-4eb1-b227-50aab38509d2.jpeg",
-      "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/f7a32f12-0b93-48a3-89c4-b3f29eb5555b.jpeg"
+      "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/f7a32f12-0b93-48a3-89c4-b3f29eb5555b.jpeg",
+      "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/0137e0fa-e6f1-4546-b86d-4527a57716f4.jpeg"
     ],
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "REPLACE THIS WITH YOUR STREET ADDRESS",
       "addressLocality": "Noosa Heads",
       "addressRegion": "QLD",
+      "postalCode": "4567",
       "addressCountry": "AU"
     },
-    "sameAs": [
-      "https://www.airbnb.com.au/rooms/49181761"
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -26.3950,
+      "longitude": 153.0940
+    },
+    "sameAs": ["https://www.airbnb.com.au/rooms/49181761"],
+    "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Heated Lagoon Pool", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "4 Bedrooms", "value": true }
     ]
   }
   </script>
