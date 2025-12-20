@@ -1,468 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+  <meta charset="UTF-8" />
 
-    <title>Noosa House – Family Villa with Resort-Style Pool, Noosa Heads</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Noosa House – Family Villa with Resort-Style Pool, Noosa Heads</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta name="msvalidate.01" content="1A5F9E495867B41926D6E2C113347122" />
+  <!-- Verification -->
+  <meta name="msvalidate.01" content="1A5F9E495867B41926D6E2C113347122" />
+  <meta name="google-site-verification" content="bQaqGoByhHPrtc4VLu5vrbcC7FKsuEyU873iGme8M-U" />
 
-    <meta
-      name="google-site-verification"
-      content="bQaqGoByhHPrtc4VLu5vrbcC7FKsuEyU873iGme8M-U"
-    />
+  <!-- SEO -->
+  <meta
+    name="description"
+    content="Noosa House is a character-filled 4-bedroom family villa in Noosa Heads with a resort-style lagoon pool, tropical gardens and space for up to 8 guests."
+  />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://www.staynoosahouse.com/" />
 
-    <meta
-      name="description"
-      content="Noosa House is a character-filled 4-bedroom family villa in Noosa Heads with a resort-style lagoon pool, tropical gardens and space for up to 8 guests."
-    />
-    <meta name="robots" content="index,follow" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="public/styles.css" />
 
-    <link rel="canonical" href="https://www.staynoosahouse.com/" />
+  <!-- Gallery styles -->
+  <style>
+    .hero-gallery {
+      max-width: 720px;
+      margin-left: auto;
+    }
 
-    <!-- IMPORTANT:
-      Use a root path so it works no matter where the page is served from.
-      (If your CSS is truly in /public/styles.css, keep this.)
-    -->
-    <link rel="stylesheet" href="/public/styles.css" />
+    .gallery-frame {
+      border-radius: 18px;
+      overflow: hidden;
+      background: #eef3f6;
+      box-shadow: 0 18px 40px rgba(0,0,0,.15);
+    }
 
-    <!-- Extra CSS just for the upgraded gallery (safe + isolated) -->
-    <style>
+    .gallery-main {
+      aspect-ratio: 16 / 10;
+      background: #e8eef2;
+    }
+
+    .gallery-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-caption {
+      padding: 10px 14px;
+      background: #fff;
+      font-size: 14px;
+    }
+
+    .thumbs {
+      display: flex;
+      gap: 10px;
+      padding: 12px;
+      overflow-x: auto;
+      background: #fff;
+      border-top: 1px solid #ddd;
+    }
+
+    .thumb {
+      width: 90px;
+      height: 60px;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      flex-shrink: 0;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .thumb.active {
+      border-color: #007c8c;
+    }
+
+    @media (max-width: 900px) {
       .hero-gallery {
-        width: 100%;
-        max-width: 760px;
-        margin-left: auto;
+        max-width: 100%;
+        margin-top: 30px;
       }
+    }
+  </style>
+</head>
 
-      .hero-gallery-frame {
-        position: relative;
-        border-radius: 18px;
-        overflow: hidden;
-        background: rgba(255, 255, 255, 0.65);
-        border: 1px solid rgba(0, 0, 0, 0.06);
-        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.12);
-      }
+<body>
+<header class="site-header">
+  <div class="logo-block">
+    <div class="logo-title">NOOSA HOUSE</div>
+    <div class="logo-subtitle">Family Villa &amp; Lagoon Pool – Noosa Heads</div>
+  </div>
 
-      .hero-gallery-main {
-        position: relative;
-        width: 100%;
-        aspect-ratio: 16 / 10;
-        display: grid;
-        place-items: center;
-        background: #eef3f6;
-      }
+  <nav class="top-nav">
+    <a href="index.html" class="active">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="location.html">Location</a>
+    <a href="contact.html">Contact</a>
+    <a href="ai-discovery.html">Property Q&amp;A</a>
+  </nav>
+</header>
 
-      .hero-gallery-main img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
+<main class="page">
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Escape to Your Private Noosa Lagoon Retreat</h1>
+      <p>
+        Noosa House is a spacious, character-filled home with exposed beams, a beachy feel
+        and a stunning heated lagoon pool wrapped in tropical gardens – tucked away in a
+        quiet Noosa Heads cul-de-sac.
+      </p>
 
-      .hero-gallery-controls {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 10px;
-        pointer-events: none;
-      }
+      <ul class="hero-highlights">
+        <li>Sleeps up to 8 guests – 4 bedrooms, 5 beds, 2 baths</li>
+        <li>Resort-style heated lagoon pool &amp; sun loungers</li>
+        <li>Large balcony overlooking the gardens and pool</li>
+        <li>Fast Wi-Fi, smart TV and family-friendly layout</li>
+        <li>Close to Hastings Street, Main Beach &amp; Noosa National Park</li>
+      </ul>
 
-      .hero-gallery-btn {
-        pointer-events: all;
-        width: 44px;
-        height: 44px;
-        border-radius: 999px;
-        border: none;
-        background: rgba(255, 255, 255, 0.85);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-        cursor: pointer;
-        font-size: 18px;
-        line-height: 44px;
-        text-align: center;
-      }
-
-      .hero-gallery-btn:active {
-        transform: translateY(1px);
-      }
-
-      .hero-gallery-caption {
-        padding: 10px 14px;
-        font-size: 14px;
-        opacity: 0.85;
-        background: rgba(255, 255, 255, 0.85);
-        border-top: 1px solid rgba(0, 0, 0, 0.06);
-      }
-
-      .hero-thumbs {
-        display: flex;
-        gap: 10px;
-        padding: 12px;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        background: rgba(255, 255, 255, 0.65);
-        border-top: 1px solid rgba(0, 0, 0, 0.06);
-      }
-
-      .hero-thumb {
-        flex: 0 0 auto;
-        width: 92px;
-        height: 62px;
-        border-radius: 12px;
-        overflow: hidden;
-        border: 2px solid transparent;
-        cursor: pointer;
-        scroll-snap-align: start;
-        background: #e9eff4;
-      }
-
-      .hero-thumb img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        opacity: 0.92;
-      }
-
-      .hero-thumb.active {
-        border-color: rgba(0, 120, 140, 0.75);
-      }
-
-      .hero-thumb.active img {
-        opacity: 1;
-      }
-
-      /* Mobile fit */
-      @media (max-width: 900px) {
-        .hero-gallery {
-          max-width: 100%;
-          margin-left: 0;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <header class="site-header">
-      <div class="logo-block">
-        <div class="logo-title">Noosa House</div>
-        <div class="logo-subtitle">Family Villa &amp; Lagoon Pool – Noosa Heads</div>
+      <div class="hero-ctas">
+        <a class="btn primary" href="https://www.airbnb.com.au/rooms/49181761" target="_blank">
+          Check availability on Airbnb
+        </a>
+        <a class="btn outline" href="https://www.airbnb.com.au/rooms/49181761?modal=PHOTO_TOUR_SCROLLABLE" target="_blank">
+          View full gallery
+        </a>
       </div>
 
-      <nav class="top-nav">
-        <a href="index.html" class="active">Home</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="location.html">Location</a>
-        <a href="contact.html">Contact</a>
-        <a href="ai-discovery.html">Property Q&amp;A</a>
-      </nav>
-    </header>
+      <p class="small-note">Please see the video description for more information.</p>
+    </div>
 
-    <main class="page">
-      <section class="hero">
-        <div class="hero-text">
-          <h1>Escape to Your Private Noosa Lagoon Retreat</h1>
-          <p>
-            Noosa House is a spacious, character-filled home with exposed beams, a beachy feel
-            and a stunning heated lagoon pool wrapped in tropical gardens – tucked away in a
-            quiet Noosa Heads cul-de-sac.
-          </p>
-
-          <ul class="hero-highlights">
-            <li>Sleeps up to 8 guests – 4 bedrooms, 5 beds, 2 baths</li>
-            <li>Resort-style heated lagoon pool &amp; sun loungers</li>
-            <li>Large balcony overlooking the gardens and pool</li>
-            <li>Fast Wi-Fi, smart TV and family-friendly layout</li>
-            <li>Close to Hastings Street, Main Beach &amp; Noosa National Park</li>
-          </ul>
-
-          <div class="hero-ctas">
-            <a
-              class="btn primary"
-              href="https://www.airbnb.com.au/rooms/49181761"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Check availability on Airbnb
-            </a>
-
-            <a
-              class="btn outline"
-              href="https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View full gallery
-            </a>
-          </div>
-
-          <p class="small-note">Please see the video description for more information.</p>
+    <!-- ✅ WORKING GALLERY -->
+    <div class="hero-gallery">
+      <div class="gallery-frame">
+        <div class="gallery-main">
+          <img id="mainImage"
+               src="public/16aaa305-3b06-41bc-bf20-1460e399b5b9.png"
+               alt="Noosa House Main Pool">
         </div>
 
-        <!-- ✅ NEW: Main image + thumbnail strip (shows ALL images) -->
-        <div class="hero-image">
-          <div class="hero-gallery" id="heroGallery">
-            <div class="hero-gallery-frame">
-              <div class="hero-gallery-main">
-                <!-- IMPORTANT:
-                  Use /public/... (root path) so it works reliably.
-                  If your real folder is NOT /public on the server, change it once here.
-                -->
-                <img
-                  id="heroMainImg"
-                  src="/public/16aaa305-3b06-41bc-bf20-1460e399b5b9.png"
-                  alt="Noosa House Main Pool"
-                  loading="eager"
-                />
+        <div class="gallery-caption" id="caption">
+          Noosa House Main Pool
+        </div>
 
-                <div class="hero-gallery-controls">
-                  <button class="hero-gallery-btn" id="heroPrevBtn" type="button" aria-label="Previous">
-                    ❮
-                  </button>
-                  <button class="hero-gallery-btn" id="heroNextBtn" type="button" aria-label="Next">
-                    ❯
-                  </button>
-                </div>
-              </div>
-
-              <div class="hero-gallery-caption" id="heroCaption">
-                Noosa House Main Pool
-              </div>
-
-              <div class="hero-thumbs" id="heroThumbs" aria-label="Image thumbnails">
-                <!-- Thumbs list (ALL images) -->
-                <button class="hero-thumb active" type="button" data-src="/public/16aaa305-3b06-41bc-bf20-1460e399b5b9.png" data-alt="Noosa House Main Pool">
-                  <img src="/public/16aaa305-3b06-41bc-bf20-1460e399b5b9.png" alt="Thumbnail: Main Pool" loading="lazy" />
-                </button>
-
-                <button class="hero-thumb" type="button" data-src="/public/Screenshot%202025-12-20%2019.08.34.png" data-alt="Noosa House Interior 1">
-                  <img src="/public/Screenshot%202025-12-20%2019.08.34.png" alt="Thumbnail: Interior 1" loading="lazy" />
-                </button>
-
-                <button class="hero-thumb" type="button" data-src="/public/Screenshot%202025-12-20%2019.09.37.png" data-alt="Noosa House Interior 2">
-                  <img src="/public/Screenshot%202025-12-20%2019.09.37.png" alt="Thumbnail: Interior 2" loading="lazy" />
-                </button>
-
-                <button class="hero-thumb" type="button" data-src="/public/Screenshot%202025-12-20%2019.10.49.png" data-alt="Noosa House Interior 3">
-                  <img src="/public/Screenshot%202025-12-20%2019.10.49.png" alt="Thumbnail: Interior 3" loading="lazy" />
-                </button>
-
-                <button class="hero-thumb" type="button" data-src="/public/Screenshot%202025-12-20%2019.11.15.png" data-alt="Noosa House Interior 4">
-                  <img src="/public/Screenshot%202025-12-20%2019.11.15.png" alt="Thumbnail: Interior 4" loading="lazy" />
-                </button>
-
-                <button class="hero-thumb" type="button" data-src="/public/Screenshot%202025-12-20%2019.11.56.png" data-alt="Noosa House Interior 5">
-                  <img src="/public/Screenshot%202025-12-20%2019.11.56.png" alt="Thumbnail: Interior 5" loading="lazy" />
-                </button>
-
-                <button class="hero-thumb" type="button" data-src="/public/Screenshot%202025-12-20%2019.12.10.png" data-alt="Noosa House Interior 6">
-                  <img src="/public/Screenshot%202025-12-20%2019.12.10.png" alt="Thumbnail: Interior 6" loading="lazy" />
-                </button>
-
-                <button class="hero-thumb" type="button" data-src="/public/Screenshot%202025-12-20%2019.12.50.png" data-alt="Noosa House Interior 7">
-                  <img src="/public/Screenshot%202025-12-20%2019.12.50.png" alt="Thumbnail: Interior 7" loading="lazy" />
-                </button>
-
-                <button class="hero-thumb" type="button" data-src="/public/Screenshot%202025-12-20%2019.13.46.png" data-alt="Noosa House Interior 8">
-                  <img src="/public/Screenshot%202025-12-20%2019.13.46.png" alt="Thumbnail: Interior 8" loading="lazy" />
-                </button>
-
-                <button class="hero-thumb" type="button" data-src="/public/Screenshot%202025-12-20%2019.14.20.png" data-alt="Noosa House Interior 9">
-                  <img src="/public/Screenshot%202025-12-20%2019.14.20.png" alt="Thumbnail: Interior 9" loading="lazy" />
-                </button>
-
-                <button class="hero-thumb" type="button" data-src="/public/Screenshot%202025-12-20%2019.15.10.png" data-alt="Noosa House Interior 10">
-                  <img src="/public/Screenshot%202025-12-20%2019.15.10.png" alt="Thumbnail: Interior 10" loading="lazy" />
-                </button>
-              </div>
-            </div>
+        <div class="thumbs" id="thumbs">
+          <div class="thumb active" data-src="public/16aaa305-3b06-41bc-bf20-1460e399b5b9.png" data-caption="Main Pool">
+            <img src="public/16aaa305-3b06-41bc-bf20-1460e399b5b9.png">
+          </div>
+          <div class="thumb" data-src="public/Screenshot%202025-12-20%2019.08.34.png" data-caption="Interior 1">
+            <img src="public/Screenshot%202025-12-20%2019.08.34.png">
+          </div>
+          <div class="thumb" data-src="public/Screenshot%202025-12-20%2019.09.37.png" data-caption="Interior 2">
+            <img src="public/Screenshot%202025-12-20%2019.09.37.png">
+          </div>
+          <div class="thumb" data-src="public/Screenshot%202025-12-20%2019.10.49.png" data-caption="Interior 3">
+            <img src="public/Screenshot%202025-12-20%2019.10.49.png">
+          </div>
+          <div class="thumb" data-src="public/Screenshot%202025-12-20%2019.11.15.png" data-caption="Interior 4">
+            <img src="public/Screenshot%202025-12-20%2019.11.15.png">
+          </div>
+          <div class="thumb" data-src="public/Screenshot%202025-12-20%2019.11.56.png" data-caption="Interior 5">
+            <img src="public/Screenshot%202025-12-20%2019.11.56.png">
+          </div>
+          <div class="thumb" data-src="public/Screenshot%202025-12-20%2019.12.10.png" data-caption="Interior 6">
+            <img src="public/Screenshot%202025-12-20%2019.12.10.png">
+          </div>
+          <div class="thumb" data-src="public/Screenshot%202025-12-20%2019.12.50.png" data-caption="Interior 7">
+            <img src="public/Screenshot%202025-12-20%2019.12.50.png">
+          </div>
+          <div class="thumb" data-src="public/Screenshot%202025-12-20%2019.13.46.png" data-caption="Interior 8">
+            <img src="public/Screenshot%202025-12-20%2019.13.46.png">
+          </div>
+          <div class="thumb" data-src="public/Screenshot%202025-12-20%2019.14.20.png" data-caption="Interior 9">
+            <img src="public/Screenshot%202025-12-20%2019.14.20.png">
+          </div>
+          <div class="thumb" data-src="public/Screenshot%202025-12-20%2019.15.10.png" data-caption="Interior 10">
+            <img src="public/Screenshot%202025-12-20%2019.15.10.png">
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
+</main>
 
-      <section class="section two-cols">
-        <div>
-          <h2>The House</h2>
-          <p>
-            The home offers generous indoor and outdoor living spaces, with breezy interiors,
-            a fully equipped kitchen, multiple lounging areas and a relaxing family layout.
-          </p>
-          <p>
-            Enjoy your private heated lagoon pool, surrounded by tropical gardens and timber
-            decking for the full Noosa holiday experience.
-          </p>
-        </div>
+<footer class="site-footer">
+  <p>© <span id="year"></span> Noosa House – Noosa Heads, Australia</p>
+</footer>
 
-        <div>
-          <h3>Key Features</h3>
-          <ul class="feature-list">
-            <li><strong>Guests:</strong> Up to 8</li>
-            <li><strong>Bedrooms:</strong> 4</li>
-            <li><strong>Bathrooms:</strong> 2</li>
-            <li><strong>Pool:</strong> Private heated lagoon pool</li>
-            <li><strong>Wi-Fi:</strong> Fast &amp; reliable</li>
-            <li><strong>Parking:</strong> Free driveway parking</li>
-          </ul>
-        </div>
-      </section>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
 
-      <section class="section">
-        <h2>The Noosa Experience</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>Poolside Living</h3>
-            <p>Relax in your private lagoon pool surrounded by lush tropical gardens.</p>
-          </article>
+  const main = document.getElementById("mainImage");
+  const caption = document.getElementById("caption");
+  const thumbs = document.querySelectorAll(".thumb");
 
-          <article class="card">
-            <h3>Family Friendly</h3>
-            <p>Perfect for families and groups with plenty of space for everyone.</p>
-          </article>
+  thumbs.forEach(t => {
+    t.addEventListener("click", () => {
+      thumbs.forEach(x => x.classList.remove("active"));
+      t.classList.add("active");
+      main.src = t.dataset.src;
+      caption.textContent = t.dataset.caption;
+    });
+  });
+</script>
 
-          <article class="card">
-            <h3>Prime Location</h3>
-            <p>Minutes from Hastings Street, Main Beach and scenic coastal walks.</p>
-          </article>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <p>© <span id="year">2025</span> Noosa House – Noosa Heads, Australia</p>
-    </footer>
-
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-
-      // ✅ Thumbnail Gallery Logic (handles MANY images cleanly)
-      (function () {
-        const mainImg = document.getElementById("heroMainImg");
-        const caption = document.getElementById("heroCaption");
-        const thumbsWrap = document.getElementById("heroThumbs");
-        const prevBtn = document.getElementById("heroPrevBtn");
-        const nextBtn = document.getElementById("heroNextBtn");
-
-        if (!mainImg || !thumbsWrap) return;
-
-        const thumbs = Array.from(thumbsWrap.querySelectorAll(".hero-thumb"));
-        let current = Math.max(
-          0,
-          thumbs.findIndex((t) => t.classList.contains("active"))
-        );
-
-        function setActive(index) {
-          if (index < 0) index = thumbs.length - 1;
-          if (index >= thumbs.length) index = 0;
-
-          const btn = thumbs[index];
-          const src = btn.getAttribute("data-src");
-          const alt = btn.getAttribute("data-alt") || "Noosa House photo";
-
-          if (src) {
-            mainImg.src = src;
-            mainImg.alt = alt;
-            if (caption) caption.textContent = alt;
-          }
-
-          thumbs.forEach((t) => t.classList.remove("active"));
-          btn.classList.add("active");
-          current = index;
-
-          // keep the active thumb visible
-          btn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-        }
-
-        thumbs.forEach((btn, i) => {
-          btn.addEventListener("click", () => setActive(i));
-        });
-
-        if (prevBtn) prevBtn.addEventListener("click", () => setActive(current - 1));
-        if (nextBtn) nextBtn.addEventListener("click", () => setActive(current + 1));
-
-        // Optional autoplay (can remove if you don't want it)
-        let timer = setInterval(() => setActive(current + 1), 6000);
-        [prevBtn, nextBtn, thumbsWrap].forEach((el) => {
-          if (!el) return;
-          el.addEventListener("mouseenter", () => clearInterval(timer));
-          el.addEventListener("mouseleave", () => (timer = setInterval(() => setActive(current + 1), 6000)));
-        });
-      })();
-    </script>
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "VacationRental",
-        "name": "Noosa House – Family Villa with Resort-Style Pool",
-        "description": "Character-filled 4-bedroom family villa in Noosa Heads with heated lagoon pool and tropical gardens.",
-        "url": "https://www.staynoosahouse.com/",
-        "identifier": {
-          "@type": "PropertyValue",
-          "name": "Airbnb",
-          "value": "49181761"
-        },
-        "image": [
-          "https://www.staynoosahouse.com/public/16aaa305-3b06-41bc-bf20-1460e399b5b9.png",
-          "https://www.staynoosahouse.com/public/Screenshot%202025-12-20%2019.08.34.png",
-          "https://www.staynoosahouse.com/public/Screenshot%202025-12-20%2019.09.37.png",
-          "https://www.staynoosahouse.com/public/Screenshot%202025-12-20%2019.10.49.png",
-          "https://www.staynoosahouse.com/public/Screenshot%202025-12-20%2019.11.15.png",
-          "https://www.staynoosahouse.com/public/Screenshot%202025-12-20%2019.11.56.png",
-          "https://www.staynoosahouse.com/public/Screenshot%202025-12-20%2019.12.10.png",
-          "https://www.staynoosahouse.com/public/Screenshot%202025-12-20%2019.12.50.png",
-          "https://www.staynoosahouse.com/public/Screenshot%202025-12-20%2019.13.46.png",
-          "https://www.staynoosahouse.com/public/Screenshot%202025-12-20%2019.14.20.png",
-          "https://www.staynoosahouse.com/public/Screenshot%202025-12-20%2019.15.10.png"
-        ],
-        "priceRange": "$$$",
-        "occupancy": {
-          "@type": "QuantitativeValue",
-          "value": 8,
-          "unitText": "guests"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "REPLACE THIS WITH YOUR STREET ADDRESS",
-          "addressLocality": "Noosa Heads",
-          "addressRegion": "QLD",
-          "postalCode": "4567",
-          "addressCountry": "AU"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": -26.395,
-          "longitude": 153.094
-        },
-        "containsPlace": {
-          "@type": "Accommodation",
-          "occupancy": {
-            "@type": "QuantitativeValue",
-            "value": 8,
-            "unitText": "guests"
-          },
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "REPLACE THIS WITH YOUR STREET ADDRESS",
-            "addressLocality": "Noosa Heads",
-            "addressRegion": "QLD",
-            "postalCode": "4567",
-            "addressCountry": "AU"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": -26.395,
-            "longitude": 153.094
-          },
-          "amenityFeature": [
-            { "@type": "LocationFeatureSpecification", "name": "Heated Lagoon Pool", "value": true },
-            { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
-            { "@type": "LocationFeatureSpecification", "name": "4 Bedrooms", "value": true }
-          ]
-        },
-        "sameAs": ["https://www.airbnb.com.au/rooms/49181761"]
-      }
-    </script>
-  </body>
+</body>
 </html>
