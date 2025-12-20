@@ -47,16 +47,6 @@
       object-fit: cover;
     }
 
-    .hero-static-overlay {
-      position: absolute;
-      left: 14px;
-      right: 14px;
-      bottom: 14px;
-      display: flex;
-      justify-content: center;
-      pointer-events: none;
-    }
-
     .hero-gallery-pill {
       pointer-events: auto;
       display: inline-flex;
@@ -87,15 +77,6 @@
       border-top: 1px solid rgba(0, 0, 0, 0.06);
       display: flex;
       justify-content: center;
-    }
-
-    /* Mobile spacing */
-    @media (max-width: 900px) {
-      .hero-static-overlay {
-        left: 12px;
-        right: 12px;
-        bottom: 12px;
-      }
     }
   </style>
 </head>
@@ -142,46 +123,22 @@
           >
             Check availability on Airbnb
           </a>
-
-          <!-- You can keep this here OR remove it later.
-               The MAIN gallery button is now on/under the photo. -->
-          <a
-            class="btn outline"
-            href="https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View full gallery
-          </a>
         </div>
 
         <p class="small-note">Please see the video description for more information.</p>
       </div>
 
-      <!-- ✅ STATIC HERO IMAGE + ONE CLEAR GALLERY BUTTON -->
+      <!-- ✅ STATIC HERO IMAGE + ONE CLEAR GALLERY BUTTON (UNDER THE PHOTO ONLY) -->
       <div class="hero-image">
         <div class="hero-static">
           <div class="hero-static-media">
             <img
-              src="public/16aaa305-3b06-41bc-bf20-1460e399b5b9.png"
+              src="/public/16aaa305-3b06-41bc-bf20-1460e399b5b9.png"
               alt="Noosa House – Lagoon Pool"
               loading="eager"
             />
           </div>
 
-          <!-- Overlay pill button ON the image -->
-          <div class="hero-static-overlay">
-            <a
-              class="hero-gallery-pill"
-              href="https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Full Gallery on Airbnb ↗
-            </a>
-          </div>
-
-          <!-- Same pill button just below image (extra obvious) -->
           <div class="hero-static-below">
             <a
               class="hero-gallery-pill"
