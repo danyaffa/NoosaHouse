@@ -21,7 +21,7 @@
   />
   <meta name="robots" content="index,follow" />
 
-  <!-- ✅ FIXED CANONICAL -->
+  <!-- ✅ CANONICAL (keep this exact) -->
   <link rel="canonical" href="https://www.staynoosahouse.com/" />
 
   <link rel="stylesheet" href="/public/styles.css" />
@@ -180,7 +180,8 @@
       if (!slider) return;
 
       const slides = Array.from(slider.querySelectorAll(".hero-slide"));
-      const dots = Array.from(document.getElementById("hero-dots").children);
+      const dotsEl = document.getElementById("hero-dots");
+      const dots = dotsEl ? Array.from(dotsEl.children) : [];
       const prevBtn = slider.querySelector(".prev");
       const nextBtn = slider.querySelector(".next");
 
@@ -207,32 +208,35 @@
       }
 
       timer = setInterval(next, 5000);
-      prevBtn.onclick = () => { prev(); restart(); };
-      nextBtn.onclick = () => { next(); restart(); };
+      if (prevBtn) prevBtn.onclick = () => { prev(); restart(); };
+      if (nextBtn) nextBtn.onclick = () => { next(); restart(); };
       dots.forEach((dot, i) => dot.onclick = () => { show(i); restart(); });
     })();
   </script>
 
-  <!-- ✅ FIXED Structured Data (removes Holiday rental invalid item) -->
+  <!-- ✅ FIXED Structured Data: use LodgingBusiness (no Holiday rental mandatory fields) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LodgingBusiness",
+    "@id": "https://www.staynoosahouse.com/#lodging",
     "name": "Noosa House – Family Villa with Resort-Style Pool",
     "description": "Character-filled 4-bedroom family villa in Noosa Heads with heated lagoon pool and tropical gardens.",
+    "url": "https://www.staynoosahouse.com/",
+    "image": [
+      "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/16aaa305-3b06-41bc-bf20-1460e399b5b9.jpeg",
+      "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/0ca004ef-c78b-4eb1-b227-50aab38509d2.jpeg",
+      "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/f7a32f12-0b93-48a3-89c4-b3f29eb5555b.jpeg"
+    ],
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Noosa Heads",
       "addressRegion": "QLD",
       "addressCountry": "AU"
     },
-    "image": [
-      "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/16aaa305-3b06-41bc-bf20-1460e399b5b9.jpeg",
-      "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/0ca004ef-c78b-4eb1-b227-50aab38509d2.jpeg",
-      "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/f7a32f12-0b93-48a3-89c4-b3f29eb5555b.jpeg"
-    ],
-    "url": "https://www.staynoosahouse.com/",
-    "sameAs": ["https://www.airbnb.com.au/rooms/49181761"]
+    "sameAs": [
+      "https://www.airbnb.com.au/rooms/49181761"
+    ]
   }
   </script>
 
