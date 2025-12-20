@@ -6,28 +6,142 @@
     <title>Noosa House – Family Villa with Resort-Style Pool, Noosa Heads</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- ⭐ Bing Verification -->
-    <meta
-      name="msvalidate.01"
-      content="1A5F9E495867B41926D6E2C113347122"
-    />
+    <meta name="msvalidate.01" content="1A5F9E495867B41926D6E2C113347122" />
 
-    <!-- ⭐ Google Verification -->
     <meta
       name="google-site-verification"
       content="bQaqGoByhHPrtc4VLu5vrbcC7FKsuEyU873iGme8M-U"
     />
 
-    <!-- ✅ SEO -->
     <meta
       name="description"
       content="Noosa House is a character-filled 4-bedroom family villa in Noosa Heads with a resort-style lagoon pool, tropical gardens and space for up to 8 guests."
     />
     <meta name="robots" content="index,follow" />
+
     <link rel="canonical" href="https://www.staynoosahouse.com/" />
 
-    <!-- ✅ Styles -->
-    <link rel="stylesheet" href="public/styles.css" />
+    <!-- IMPORTANT:
+      Use a root path so it works no matter where the page is served from.
+      (If your CSS is truly in /public/styles.css, keep this.)
+    -->
+    <link rel="stylesheet" href="/public/styles.css" />
+
+    <!-- Extra CSS just for the upgraded gallery (safe + isolated) -->
+    <style>
+      .hero-gallery {
+        width: 100%;
+        max-width: 760px;
+        margin-left: auto;
+      }
+
+      .hero-gallery-frame {
+        position: relative;
+        border-radius: 18px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.65);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.12);
+      }
+
+      .hero-gallery-main {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        display: grid;
+        place-items: center;
+        background: #eef3f6;
+      }
+
+      .hero-gallery-main img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .hero-gallery-controls {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px;
+        pointer-events: none;
+      }
+
+      .hero-gallery-btn {
+        pointer-events: all;
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        border: none;
+        background: rgba(255, 255, 255, 0.85);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+        cursor: pointer;
+        font-size: 18px;
+        line-height: 44px;
+        text-align: center;
+      }
+
+      .hero-gallery-btn:active {
+        transform: translateY(1px);
+      }
+
+      .hero-gallery-caption {
+        padding: 10px 14px;
+        font-size: 14px;
+        opacity: 0.85;
+        background: rgba(255, 255, 255, 0.85);
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .hero-thumbs {
+        display: flex;
+        gap: 10px;
+        padding: 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        background: rgba(255, 255, 255, 0.65);
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .hero-thumb {
+        flex: 0 0 auto;
+        width: 92px;
+        height: 62px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 2px solid transparent;
+        cursor: pointer;
+        scroll-snap-align: start;
+        background: #e9eff4;
+      }
+
+      .hero-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        opacity: 0.92;
+      }
+
+      .hero-thumb.active {
+        border-color: rgba(0, 120, 140, 0.75);
+      }
+
+      .hero-thumb.active img {
+        opacity: 1;
+      }
+
+      /* Mobile fit */
+      @media (max-width: 900px) {
+        .hero-gallery {
+          max-width: 100%;
+          margin-left: 0;
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -37,7 +151,7 @@
         <div class="logo-subtitle">Family Villa &amp; Lagoon Pool – Noosa Heads</div>
       </div>
 
-      <nav class="top-nav" aria-label="Primary navigation">
+      <nav class="top-nav">
         <a href="index.html" class="active">Home</a>
         <a href="gallery.html">Gallery</a>
         <a href="location.html">Location</a>
@@ -51,9 +165,9 @@
         <div class="hero-text">
           <h1>Escape to Your Private Noosa Lagoon Retreat</h1>
           <p>
-            Noosa House is a spacious, character-filled home with exposed beams, a beachy
-            feel and a stunning heated lagoon pool wrapped in tropical gardens – tucked away
-            in a quiet Noosa Heads cul-de-sac.
+            Noosa House is a spacious, character-filled home with exposed beams, a beachy feel
+            and a stunning heated lagoon pool wrapped in tropical gardens – tucked away in a
+            quiet Noosa Heads cul-de-sac.
           </p>
 
           <ul class="hero-highlights">
@@ -74,7 +188,6 @@
               Check availability on Airbnb
             </a>
 
-            <!-- ✅ Connected to Airbnb Gallery link -->
             <a
               class="btn outline"
               href="https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE"
@@ -88,104 +201,82 @@
           <p class="small-note">Please see the video description for more information.</p>
         </div>
 
+        <!-- ✅ NEW: Main image + thumbnail strip (shows ALL images) -->
         <div class="hero-image">
-          <div class="hero-slider" id="hero-slider" aria-label="Property image slider">
-            <div class="hero-slide active">
-              <img
-                src="public/16aaa305-3b06-41bc-bf20-1460e399b5b9.png"
-                alt="Noosa House Main Pool"
-              />
-            </div>
+          <div class="hero-gallery" id="heroGallery">
+            <div class="hero-gallery-frame">
+              <div class="hero-gallery-main">
+                <!-- IMPORTANT:
+                  Use /public/... (root path) so it works reliably.
+                  If your real folder is NOT /public on the server, change it once here.
+                -->
+                <img
+                  id="heroMainImg"
+                  src="/public/16aaa305-3b06-41bc-bf20-1460e399b5b9.png"
+                  alt="Noosa House Main Pool"
+                  loading="eager"
+                />
 
-            <div class="hero-slide">
-              <img
-                src="public/Screenshot%202025-12-20%2019.08.34.png"
-                alt="Noosa House Interior 1"
-              />
-            </div>
+                <div class="hero-gallery-controls">
+                  <button class="hero-gallery-btn" id="heroPrevBtn" type="button" aria-label="Previous">
+                    ❮
+                  </button>
+                  <button class="hero-gallery-btn" id="heroNextBtn" type="button" aria-label="Next">
+                    ❯
+                  </button>
+                </div>
+              </div>
 
-            <div class="hero-slide">
-              <img
-                src="public/Screenshot%202025-12-20%2019.09.37.png"
-                alt="Noosa House Interior 2"
-              />
-            </div>
+              <div class="hero-gallery-caption" id="heroCaption">
+                Noosa House Main Pool
+              </div>
 
-            <div class="hero-slide">
-              <img
-                src="public/Screenshot%202025-12-20%2019.10.49.png"
-                alt="Noosa House Interior 3"
-              />
-            </div>
+              <div class="hero-thumbs" id="heroThumbs" aria-label="Image thumbnails">
+                <!-- Thumbs list (ALL images) -->
+                <button class="hero-thumb active" type="button" data-src="/public/16aaa305-3b06-41bc-bf20-1460e399b5b9.png" data-alt="Noosa House Main Pool">
+                  <img src="/public/16aaa305-3b06-41bc-bf20-1460e399b5b9.png" alt="Thumbnail: Main Pool" loading="lazy" />
+                </button>
 
-            <div class="hero-slide">
-              <img
-                src="public/Screenshot%202025-12-20%2019.11.15.png"
-                alt="Noosa House Interior 4"
-              />
-            </div>
+                <button class="hero-thumb" type="button" data-src="/public/Screenshot%202025-12-20%2019.08.34.png" data-alt="Noosa House Interior 1">
+                  <img src="/public/Screenshot%202025-12-20%2019.08.34.png" alt="Thumbnail: Interior 1" loading="lazy" />
+                </button>
 
-            <div class="hero-slide">
-              <img
-                src="public/Screenshot%202025-12-20%2019.11.56.png"
-                alt="Noosa House Interior 5"
-              />
-            </div>
+                <button class="hero-thumb" type="button" data-src="/public/Screenshot%202025-12-20%2019.09.37.png" data-alt="Noosa House Interior 2">
+                  <img src="/public/Screenshot%202025-12-20%2019.09.37.png" alt="Thumbnail: Interior 2" loading="lazy" />
+                </button>
 
-            <div class="hero-slide">
-              <img
-                src="public/Screenshot%202025-12-20%2019.12.10.png"
-                alt="Noosa House Interior 6"
-              />
-            </div>
+                <button class="hero-thumb" type="button" data-src="/public/Screenshot%202025-12-20%2019.10.49.png" data-alt="Noosa House Interior 3">
+                  <img src="/public/Screenshot%202025-12-20%2019.10.49.png" alt="Thumbnail: Interior 3" loading="lazy" />
+                </button>
 
-            <div class="hero-slide">
-              <img
-                src="public/Screenshot%202025-12-20%2019.12.50.png"
-                alt="Noosa House Interior 7"
-              />
-            </div>
+                <button class="hero-thumb" type="button" data-src="/public/Screenshot%202025-12-20%2019.11.15.png" data-alt="Noosa House Interior 4">
+                  <img src="/public/Screenshot%202025-12-20%2019.11.15.png" alt="Thumbnail: Interior 4" loading="lazy" />
+                </button>
 
-            <div class="hero-slide">
-              <img
-                src="public/Screenshot%202025-12-20%2019.13.46.png"
-                alt="Noosa House Interior 8"
-              />
-            </div>
+                <button class="hero-thumb" type="button" data-src="/public/Screenshot%202025-12-20%2019.11.56.png" data-alt="Noosa House Interior 5">
+                  <img src="/public/Screenshot%202025-12-20%2019.11.56.png" alt="Thumbnail: Interior 5" loading="lazy" />
+                </button>
 
-            <div class="hero-slide">
-              <img
-                src="public/Screenshot%202025-12-20%2019.14.20.png"
-                alt="Noosa House Interior 9"
-              />
-            </div>
+                <button class="hero-thumb" type="button" data-src="/public/Screenshot%202025-12-20%2019.12.10.png" data-alt="Noosa House Interior 6">
+                  <img src="/public/Screenshot%202025-12-20%2019.12.10.png" alt="Thumbnail: Interior 6" loading="lazy" />
+                </button>
 
-            <div class="hero-slide">
-              <img
-                src="public/Screenshot%202025-12-20%2019.15.10.png"
-                alt="Noosa House Interior 10"
-              />
-            </div>
+                <button class="hero-thumb" type="button" data-src="/public/Screenshot%202025-12-20%2019.12.50.png" data-alt="Noosa House Interior 7">
+                  <img src="/public/Screenshot%202025-12-20%2019.12.50.png" alt="Thumbnail: Interior 7" loading="lazy" />
+                </button>
 
-            <button class="hero-slider-btn prev" type="button" aria-label="Previous slide">
-              ❮
-            </button>
-            <button class="hero-slider-btn next" type="button" aria-label="Next slide">
-              ❯
-            </button>
+                <button class="hero-thumb" type="button" data-src="/public/Screenshot%202025-12-20%2019.13.46.png" data-alt="Noosa House Interior 8">
+                  <img src="/public/Screenshot%202025-12-20%2019.13.46.png" alt="Thumbnail: Interior 8" loading="lazy" />
+                </button>
 
-            <div class="hero-dots" id="hero-dots" aria-label="Slide navigation">
-              <button class="hero-dot active" type="button" aria-label="Go to slide 1"></button>
-              <button class="hero-dot" type="button" aria-label="Go to slide 2"></button>
-              <button class="hero-dot" type="button" aria-label="Go to slide 3"></button>
-              <button class="hero-dot" type="button" aria-label="Go to slide 4"></button>
-              <button class="hero-dot" type="button" aria-label="Go to slide 5"></button>
-              <button class="hero-dot" type="button" aria-label="Go to slide 6"></button>
-              <button class="hero-dot" type="button" aria-label="Go to slide 7"></button>
-              <button class="hero-dot" type="button" aria-label="Go to slide 8"></button>
-              <button class="hero-dot" type="button" aria-label="Go to slide 9"></button>
-              <button class="hero-dot" type="button" aria-label="Go to slide 10"></button>
-              <button class="hero-dot" type="button" aria-label="Go to slide 11"></button>
+                <button class="hero-thumb" type="button" data-src="/public/Screenshot%202025-12-20%2019.14.20.png" data-alt="Noosa House Interior 9">
+                  <img src="/public/Screenshot%202025-12-20%2019.14.20.png" alt="Thumbnail: Interior 9" loading="lazy" />
+                </button>
+
+                <button class="hero-thumb" type="button" data-src="/public/Screenshot%202025-12-20%2019.15.10.png" data-alt="Noosa House Interior 10">
+                  <img src="/public/Screenshot%202025-12-20%2019.15.10.png" alt="Thumbnail: Interior 10" loading="lazy" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -245,44 +336,58 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // Slider Logic
+      // ✅ Thumbnail Gallery Logic (handles MANY images cleanly)
       (function () {
-        const slider = document.getElementById("hero-slider");
-        if (!slider) return;
+        const mainImg = document.getElementById("heroMainImg");
+        const caption = document.getElementById("heroCaption");
+        const thumbsWrap = document.getElementById("heroThumbs");
+        const prevBtn = document.getElementById("heroPrevBtn");
+        const nextBtn = document.getElementById("heroNextBtn");
 
-        const slides = Array.from(slider.querySelectorAll(".hero-slide"));
-        const dotsWrap = document.getElementById("hero-dots");
-        const dots = dotsWrap ? Array.from(dotsWrap.children) : [];
-        const prevBtn = slider.querySelector(".prev");
-        const nextBtn = slider.querySelector(".next");
+        if (!mainImg || !thumbsWrap) return;
 
-        let current = 0;
-        let timer;
+        const thumbs = Array.from(thumbsWrap.querySelectorAll(".hero-thumb"));
+        let current = Math.max(
+          0,
+          thumbs.findIndex((t) => t.classList.contains("active"))
+        );
 
-        function show(i) {
-          slides.forEach((s, idx) => s.classList.toggle("active", idx === i));
-          dots.forEach((d, idx) => d.classList.toggle("active", idx === i));
-          current = i;
+        function setActive(index) {
+          if (index < 0) index = thumbs.length - 1;
+          if (index >= thumbs.length) index = 0;
+
+          const btn = thumbs[index];
+          const src = btn.getAttribute("data-src");
+          const alt = btn.getAttribute("data-alt") || "Noosa House photo";
+
+          if (src) {
+            mainImg.src = src;
+            mainImg.alt = alt;
+            if (caption) caption.textContent = alt;
+          }
+
+          thumbs.forEach((t) => t.classList.remove("active"));
+          btn.classList.add("active");
+          current = index;
+
+          // keep the active thumb visible
+          btn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
         }
 
-        function next() {
-          show((current + 1) % slides.length);
-        }
+        thumbs.forEach((btn, i) => {
+          btn.addEventListener("click", () => setActive(i));
+        });
 
-        function prev() {
-          show((current - 1 + slides.length) % slides.length);
-        }
+        if (prevBtn) prevBtn.addEventListener("click", () => setActive(current - 1));
+        if (nextBtn) nextBtn.addEventListener("click", () => setActive(current + 1));
 
-        function restart() {
-          clearInterval(timer);
-          timer = setInterval(next, 5000);
-        }
-
-        timer = setInterval(next, 5000);
-
-        if (prevBtn) prevBtn.onclick = () => { prev(); restart(); };
-        if (nextBtn) nextBtn.onclick = () => { next(); restart(); };
-        dots.forEach((dot, i) => (dot.onclick = () => { show(i); restart(); }));
+        // Optional autoplay (can remove if you don't want it)
+        let timer = setInterval(() => setActive(current + 1), 6000);
+        [prevBtn, nextBtn, thumbsWrap].forEach((el) => {
+          if (!el) return;
+          el.addEventListener("mouseenter", () => clearInterval(timer));
+          el.addEventListener("mouseleave", () => (timer = setInterval(() => setActive(current + 1), 6000)));
+        });
       })();
     </script>
 
