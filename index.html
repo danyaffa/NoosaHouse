@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
   <title>Noosa House – Family Villa with Resort-Style Pool, Noosa Heads</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -21,64 +20,6 @@
   <link rel="canonical" href="https://www.staynoosahouse.com/" />
 
   <link rel="stylesheet" href="public/styles.css" />
-
-  <!-- ✅ Only styling for the static hero image + gallery button -->
-  <style>
-    .hero-static {
-      position: relative;
-      width: 100%;
-      border-radius: 18px;
-      overflow: hidden;
-      background: rgba(255, 255, 255, 0.65);
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.12);
-    }
-
-    .hero-static-media {
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      background: #eef3f6;
-    }
-
-    .hero-static-media img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-    }
-
-    .hero-gallery-pill {
-      pointer-events: auto;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 100%;
-      max-width: 520px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 800;
-      background: rgba(255, 255, 255, 0.92);
-      border: 1px solid rgba(0, 0, 0, 0.10);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.16);
-      color: inherit;
-      backdrop-filter: blur(6px);
-    }
-
-    .hero-gallery-pill:hover {
-      background: rgba(255, 255, 255, 0.98);
-      transform: translateY(-1px);
-    }
-
-    .hero-static-below {
-      padding: 12px 14px 14px;
-      background: rgba(255, 255, 255, 0.80);
-      border-top: 1px solid rgba(0, 0, 0, 0.06);
-      display: flex;
-      justify-content: center;
-    }
-  </style>
 </head>
 
 <body>
@@ -123,31 +64,42 @@
           >
             Check availability on Airbnb
           </a>
-        </div>
 
-        <p class="small-note">Please see the video description for more information.</p>
+          <a 
+            class="btn outline" 
+            href="https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View full gallery
+          </a>
+        </div>
       </div>
 
-      <!-- ✅ STATIC HERO IMAGE + ONE CLEAR GALLERY BUTTON (UNDER THE PHOTO ONLY) -->
       <div class="hero-image">
-        <div class="hero-static">
-          <div class="hero-static-media">
-            <img
-              src="/public/16aaa305-3b06-41bc-bf20-1460e399b5b9.png"
-              alt="Noosa House – Lagoon Pool"
-              loading="eager"
-            />
+        <div class="hero-slider" id="hero-slider">
+          
+          <div class="hero-slide active">
+            <img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/16aaa305-3b06-41bc-bf20-1460e399b5b9.jpeg?im_w=1200" alt="Noosa House Main Pool" />
+          </div>
+          <div class="hero-slide">
+            <img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/0ca004ef-c78b-4eb1-b227-50aab38509d2.jpeg?im_w=1200" alt="Noosa House Pool Area" />
+          </div>
+          <div class="hero-slide">
+            <img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/f7a32f12-0b93-48a3-89c4-b3f29eb5555b.jpeg?im_w=1200" alt="Noosa House Garden" />
+          </div>
+          <div class="hero-slide">
+            <img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/0137e0fa-e6f1-4546-b86d-4527a57716f4.jpeg?im_w=1200" alt="Noosa House Interior" />
           </div>
 
-          <div class="hero-static-below">
-            <a
-              class="hero-gallery-pill"
-              href="https://www.airbnb.com.au/rooms/49181761?source_impression_id=p3_1766212108_P3KY2GhHXm5jXUPI&modal=PHOTO_TOUR_SCROLLABLE"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Full Gallery on Airbnb ↗
-            </a>
+          <button class="hero-slider-btn prev" aria-label="Previous">❮</button>
+          <button class="hero-slider-btn next" aria-label="Next">❯</button>
+
+          <div class="hero-dots" id="hero-dots">
+            <button class="hero-dot active"></button>
+            <button class="hero-dot"></button>
+            <button class="hero-dot"></button>
+            <button class="hero-dot"></button>
           </div>
         </div>
       </div>
@@ -212,6 +164,44 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Slider Logic
+    (function () {
+      const slider = document.getElementById("hero-slider");
+      if (!slider) return;
+
+      const slides = Array.from(slider.querySelectorAll(".hero-slide"));
+      const dots = Array.from(document.getElementById("hero-dots").children);
+      const prevBtn = slider.querySelector(".prev");
+      const nextBtn = slider.querySelector(".next");
+
+      let current = 0;
+      let timer;
+
+      function show(i) {
+        slides.forEach((s, idx) => s.classList.toggle("active", idx === i));
+        dots.forEach((d, idx) => d.classList.toggle("active", idx === i));
+        current = i;
+      }
+
+      function next() {
+        show((current + 1) % slides.length);
+      }
+
+      function prev() {
+        show((current - 1 + slides.length) % slides.length);
+      }
+
+      function restart() {
+        clearInterval(timer);
+        timer = setInterval(next, 5000);
+      }
+
+      timer = setInterval(next, 5000);
+      prevBtn.onclick = () => { prev(); restart(); };
+      nextBtn.onclick = () => { next(); restart(); };
+      dots.forEach((dot, i) => dot.onclick = () => { show(i); restart(); });
+    })();
   </script>
 
   <script type="application/ld+json">
@@ -227,7 +217,14 @@
         "value": "49181761"
     },
     "image": [
-      "https://www.staynoosahouse.com/public/16aaa305-3b06-41bc-bf20-1460e399b5b9.png"
+      "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/16aaa305-3b06-41bc-bf20-1460e399b5b9.jpeg",
+      "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/0ca004ef-c78b-4eb1-b227-50aab38509d2.jpeg",
+      "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/f7a32f12-0b93-48a3-89c4-b3f29eb5555b.jpeg",
+      "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/0137e0fa-e6f1-4546-b86d-4527a57716f4.jpeg",
+      "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/16aaa305-3b06-41bc-bf20-1460e399b5b9.jpeg",
+      "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/0ca004ef-c78b-4eb1-b227-50aab38509d2.jpeg",
+      "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/f7a32f12-0b93-48a3-89c4-b3f29eb5555b.jpeg",
+      "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/0137e0fa-e6f1-4546-b86d-4527a57716f4.jpeg"
     ],
     "priceRange": "$$$",
     "occupancy": {
@@ -247,6 +244,32 @@
       "@type": "GeoCoordinates",
       "latitude": -26.3950,
       "longitude": 153.0940
+    },
+    "containsPlace": {
+        "@type": "Accommodation",
+        "occupancy": {
+            "@type": "QuantitativeValue",
+            "value": 8,
+            "unitText": "guests"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "REPLACE THIS WITH YOUR STREET ADDRESS",
+          "addressLocality": "Noosa Heads",
+          "addressRegion": "QLD",
+          "postalCode": "4567",
+          "addressCountry": "AU"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -26.3950,
+          "longitude": 153.0940
+        },
+        "amenityFeature": [
+            { "@type": "LocationFeatureSpecification", "name": "Heated Lagoon Pool", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "4 Bedrooms", "value": true }
+        ]
     },
     "sameAs": ["https://www.airbnb.com.au/rooms/49181761"]
   }
