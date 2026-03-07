@@ -9,7 +9,24 @@
     name="description"
     content="Helpful property facts, Q&A, and structured details about Noosa House for guests and search engines."
   />
-  <link rel="canonical" href="https://noosahouse.com/ai-discovery.html" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://www.staynoosahouse.com/ai-discovery" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Property Q&A – Noosa House, Noosa Heads" />
+  <meta property="og:description" content="Helpful property facts, Q&A, and structured details about Noosa House for guests and search engines." />
+  <meta property="og:url" content="https://www.staynoosahouse.com/ai-discovery" />
+  <meta property="og:image" content="https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/16aaa305-3b06-41bc-bf20-1460e399b5b9.jpeg" />
+  <meta property="og:site_name" content="Noosa House" />
+  <meta property="og:locale" content="en_AU" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Property Q&A – Noosa House, Noosa Heads" />
+  <meta name="twitter:description" content="Noosa House FAQs – pool, parking, family-friendly details and booking info." />
+  <meta name="twitter:image" content="https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/16aaa305-3b06-41bc-bf20-1460e399b5b9.jpeg" />
+
   <link rel="stylesheet" href="/public/styles.css" />
 </head>
 
@@ -70,6 +87,55 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is the pool at Noosa House private?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes – the heated lagoon pool is exclusively for your group during your stay."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Noosa House family friendly?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely – Noosa House is ideal for families with kids and adults, offering 4 bedrooms and space for up to 8 guests."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How far is Noosa House from the beach?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Noosa Main Beach and Hastings Street are just a few minutes' drive from the house."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is parking included at Noosa House?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes – free private driveway parking is included for guests."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many bedrooms does Noosa House have?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Noosa House has 4 bedrooms with 5 beds and 2 bathrooms, accommodating up to 8 guests."
+        }
+      }
+    ]
+  }
   </script>
 </body>
 </html>
