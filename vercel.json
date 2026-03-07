@@ -2,9 +2,15 @@
   "version": 2,
   "builds": [
     { "src": "*.html", "use": "@vercel/static" },
+    { "src": "*.xml", "use": "@vercel/static" },
+    { "src": "*.txt", "use": "@vercel/static" },
     { "src": "public/*.css", "use": "@vercel/static" }
   ],
   "routes": [
+    { "src": "/sitemap.xml", "dest": "/sitemap.xml" },
+    { "src": "/robots.txt", "dest": "/robots.txt" },
+    { "src": "/llms.txt", "dest": "/llms.txt" },
+
     { "src": "/gallery.html", "dest": "/gallery.html" },
     { "src": "/location.html", "dest": "/location.html" },
     { "src": "/contact.html", "dest": "/contact.html" },

@@ -11,7 +11,23 @@
     content="Photo gallery of Noosa House in Noosa Heads – lagoon pool, tropical gardens, relaxing interiors and the Airbnb gallery link."
   />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://staynoosahouse.com/gallery.html" />
+  <link rel="canonical" href="https://www.staynoosahouse.com/gallery" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Gallery – Noosa House, Noosa Heads" />
+  <meta property="og:description" content="Photo gallery of Noosa House in Noosa Heads – lagoon pool, tropical gardens, relaxing interiors and outdoor living spaces." />
+  <meta property="og:url" content="https://www.staynoosahouse.com/gallery" />
+  <meta property="og:image" content="https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/16aaa305-3b06-41bc-bf20-1460e399b5b9.jpeg" />
+  <meta property="og:site_name" content="Noosa House" />
+  <meta property="og:locale" content="en_AU" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Gallery – Noosa House, Noosa Heads" />
+  <meta name="twitter:description" content="Photo gallery of Noosa House – lagoon pool, tropical gardens, relaxing interiors." />
+  <meta name="twitter:image" content="https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/16aaa305-3b06-41bc-bf20-1460e399b5b9.jpeg" />
+
   <link rel="stylesheet" href="/public/styles.css" />
 </head>
 
@@ -110,6 +126,43 @@
   <footer class="site-footer">
     <p>© <span id="year"></span> Noosa House – Noosa Heads, Australia</p>
   </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "Noosa House Photo Gallery",
+    "description": "Photo gallery of Noosa House family villa in Noosa Heads – featuring lagoon pool, tropical gardens, and relaxing interiors.",
+    "url": "https://www.staynoosahouse.com/gallery",
+    "image": [
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/16aaa305-3b06-41bc-bf20-1460e399b5b9.jpeg",
+        "name": "Noosa House lagoon pool and tropical garden"
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/0ca004ef-c78b-4eb1-b227-50aab38509d2.jpeg",
+        "name": "Lagoon pool with sun loungers and palms"
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/f7a32f12-0b93-48a3-89c4-b3f29eb5555b.jpeg",
+        "name": "Tropical gardens surrounding the lagoon pool"
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/0137e0fa-e6f1-4546-b86d-4527a57716f4.jpeg",
+        "name": "Living room and dining area"
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/7fd9ffa5-099f-479f-b967-4b9a80540616.jpeg",
+        "name": "Cozy lounge with comfortable seating"
+      }
+    ]
+  }
+  </script>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();

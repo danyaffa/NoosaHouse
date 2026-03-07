@@ -1,6 +1,29 @@
-# FILE: /public/robots.txt
+# Noosa House – www.staynoosahouse.com
+# Crawl rules for search engines and AI assistants
 
 User-agent: *
 Allow: /
 
-Sitemap: https://staynoosahouse.com/sitemap.xml
+# AI-specific crawlers – welcome to index this property
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://www.staynoosahouse.com/sitemap.xml
