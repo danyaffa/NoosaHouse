@@ -50,9 +50,8 @@
     <section class="section">
       <h1>Photo Gallery</h1>
       <p>
-        Explore a selection of the best photos of Noosa House below – tap any image to
-        view it full screen. To see the <strong>full Airbnb Photo Tour with every image</strong>,
-        click the button:
+        See the <strong>full Airbnb Photo Tour with every image</strong> – including the
+        lagoon pool, tropical gardens, living areas and bedrooms – by clicking the button below:
       </p>
 
       <!-- ⭐ AIRBNB FULL GALLERY BUTTON ⭐ -->
@@ -66,162 +65,15 @@
           View Full Photo Gallery on Airbnb
         </a>
       </p>
-
-      <hr style="margin: 2rem 0; opacity: 0.3;" />
-
-      <h2>Featured Photos</h2>
-
-      <div class="gallery-grid">
-
-        <!-- Featured Pool & Exterior Photos -->
-        <div class="gallery-item">
-          <img
-            src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/16aaa305-3b06-41bc-bf20-1460e399b5b9.jpeg?im_w=1200"
-            loading="lazy"
-            alt="Noosa House – lagoon pool and tropical garden"
-          />
-        </div>
-
-        <div class="gallery-item">
-          <img
-            src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/0ca004ef-c78b-4eb1-b227-50aab38509d2.jpeg?im_w=1200"
-            loading="lazy"
-            alt="Lagoon pool with sun loungers and lush palms"
-          />
-        </div>
-
-        <div class="gallery-item">
-          <img
-            src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/f7a32f12-0b93-48a3-89c4-b3f29eb5555b.jpeg?im_w=1200"
-            loading="lazy"
-            alt="Tropical gardens surrounding the lagoon pool"
-          />
-        </div>
-
-        <!-- Living Areas -->
-        <div class="gallery-item">
-          <img
-            src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/0137e0fa-e6f1-4546-b86d-4527a57716f4.jpeg?im_w=1200"
-            loading="lazy"
-            alt="Bright living room and dining area at Noosa House"
-          />
-        </div>
-
-        <div class="gallery-item">
-          <img
-            src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/7fd9ffa5-099f-479f-b967-4b9a80540616.jpeg?im_w=1200"
-            loading="lazy"
-            alt="Cozy lounge with comfortable seating"
-          />
-        </div>
-
-      </div>
     </section>
   </main>
-
-  <!-- LIGHTBOX -->
-  <div class="lightbox-overlay" id="lightbox-overlay" aria-hidden="true">
-    <button class="lightbox-close" id="lightbox-close" aria-label="Close">×</button>
-    <button class="lightbox-nav prev" id="lightbox-prev" aria-label="Previous image">❮</button>
-
-    <img id="lightbox-image" src="" alt="Full-size view" />
-
-    <button class="lightbox-nav next" id="lightbox-next" aria-label="Next image">❯</button>
-  </div>
 
   <footer class="site-footer">
     <p>© <span id="year"></span> Noosa House – Noosa Heads, Australia</p>
   </footer>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ImageGallery",
-    "name": "Noosa House Photo Gallery",
-    "description": "Photo gallery of Noosa House family villa in Noosa Heads – featuring lagoon pool, tropical gardens, and relaxing interiors.",
-    "url": "https://www.staynoosahouse.com/gallery",
-    "image": [
-      {
-        "@type": "ImageObject",
-        "contentUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/16aaa305-3b06-41bc-bf20-1460e399b5b9.jpeg",
-        "name": "Noosa House lagoon pool and tropical garden"
-      },
-      {
-        "@type": "ImageObject",
-        "contentUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/0ca004ef-c78b-4eb1-b227-50aab38509d2.jpeg",
-        "name": "Lagoon pool with sun loungers and palms"
-      },
-      {
-        "@type": "ImageObject",
-        "contentUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/f7a32f12-0b93-48a3-89c4-b3f29eb5555b.jpeg",
-        "name": "Tropical gardens surrounding the lagoon pool"
-      },
-      {
-        "@type": "ImageObject",
-        "contentUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/0137e0fa-e6f1-4546-b86d-4527a57716f4.jpeg",
-        "name": "Living room and dining area"
-      },
-      {
-        "@type": "ImageObject",
-        "contentUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-49181761/original/7fd9ffa5-099f-479f-b967-4b9a80540616.jpeg",
-        "name": "Cozy lounge with comfortable seating"
-      }
-    ]
-  }
-  </script>
-
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    // LIGHTBOX SCRIPT
-    (function () {
-      const overlay = document.getElementById("lightbox-overlay");
-      const lightboxImg = document.getElementById("lightbox-image");
-      const images = Array.from(document.querySelectorAll(".gallery-item img"));
-      const closeBtn = document.getElementById("lightbox-close");
-      const prevBtn = document.getElementById("lightbox-prev");
-      const nextBtn = document.getElementById("lightbox-next");
-
-      if (!images.length) return;
-
-      let currentIndex = 0;
-
-      function openLightbox(index) {
-        currentIndex = index;
-        lightboxImg.src = images[index].src;
-        overlay.classList.add("open");
-        overlay.setAttribute("aria-hidden", "false");
-      }
-
-      function closeLightbox() {
-        overlay.classList.remove("open");
-        overlay.setAttribute("aria-hidden", "true");
-      }
-
-      function showNext(delta) {
-        currentIndex = (currentIndex + delta + images.length) % images.length;
-        lightboxImg.src = images[currentIndex].src;
-      }
-
-      images.forEach((img, index) => {
-        img.addEventListener("click", () => openLightbox(index));
-      });
-
-      closeBtn.addEventListener("click", closeLightbox);
-      overlay.addEventListener("click", (e) => {
-        if (e.target === overlay) closeLightbox();
-      });
-
-      prevBtn.addEventListener("click", () => showNext(-1));
-      nextBtn.addEventListener("click", () => showNext(1));
-
-      document.addEventListener("keydown", (e) => {
-        if (!overlay.classList.contains("open")) return;
-        if (e.key === "Escape") closeLightbox();
-        if (e.key === "ArrowRight") showNext(1);
-        if (e.key === "ArrowLeft") showNext(-1);
-      });
-    })();
   </script>
 
 </body>
